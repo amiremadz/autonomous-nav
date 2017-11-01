@@ -1,0 +1,9 @@
+Navdata
+
+The navdata contains the following values:
+
+rotX - roll angle in radians (rotation around x axis)
+rotY - pitch angle in radians (rotation around y axis)
+rotZ - yaw angle in radians (rotation around z axis)
+vx - velocity along the x axis
+vy - velocity along the y axis
