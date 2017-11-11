@@ -41,8 +41,8 @@ class UserCode:
         '''
         
         #TODO: Predict the next state
-        x_p = np.zeros((4,1))
-        
+        x_p = np.dot(A, x)
+
         return x_p
     
     def predictCovariance(self, A, sigma, Q):
@@ -63,7 +63,8 @@ class UserCode:
         '''
         
         #TODO: Correct the current state prediction with the measurement
-        x = np.zeros((4,1))
+        inov = z - np.dot(H, x_p)
+        x = x_p + np.dot(k, inov)
 
         return x
     
