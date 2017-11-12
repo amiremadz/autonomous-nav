@@ -125,6 +125,8 @@ class UserCode:
         '''
         predicts a marker measurement given the current state and the marker position and orientation in world coordinates 
         '''
+        # T^Q_M: transfer from Q to M. Pose of M w.r.t Q
+        # T^{Q}_{M} = (T^{W}_{Q})^{-1}\times(T^{W}_{M})
         z_predicted = Pose2D(self.rotation(x[2]), x[0:2]).inv() * Pose2D(self.rotation(marker_yaw_world), marker_position_world);
         
         return np.array([[z_predicted.translation[0], z_predicted.translation[1], z_predicted.yaw()]]).T
